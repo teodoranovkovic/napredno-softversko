@@ -1,0 +1,12 @@
+<app-header [backButton]="true" subheader="ACTOR"></app-header>
+<ion-content>
+  <app-actor-card></app-actor-card>
+
+  <ion-item>
+    <ion-text>
+      <h3>View all filmography</h3>
+    </ion-text>
+  </ion-item>
+
+  <app-films-listbox [favouriteFilmsClicked]="false" [films]="this.films"></app-films-listbox>
+</ion-content>

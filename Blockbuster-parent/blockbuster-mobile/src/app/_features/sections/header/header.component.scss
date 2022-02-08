@@ -1,0 +1,65 @@
+.logo {
+  width: 150px;
+  float: left;
+  content: url(../../../../assets/logo.svg);
+}
+
+.login {
+  justify-self: right;
+}
+
+.chip {
+  font-size: large;
+}
+
+@media only screen and (max-width: 370px) {
+  .logo {
+    width: 25px;
+    float: left;
+    content: url(../../../../assets/logo-sm.svg);
+  }
+}
+
+#line {
+  width: 100%;
+  height: 2px;
+  background: var(--ion-color-blockbuster-text);
+}
+
+.subheader {
+  background: var(--ion-color-blockbuster-bg-tint);
+  // color: var(--ion-color-blockbuster-bg-contrast);
+}
+
+.title {
+  font-size: 6vw;
+  font-weight: 900;
+}
+
+@media only screen and (min-width: 600px) {
+  .title {
+    font-size: 35px;
+  }
+}
+
+.white {
+  color: white;
+}
+
+// .notification-button{
+//   position: relative;
+//   top:1px;
+//   right: 1px;
+//   overflow: visible!important;
+// }
+
+.notification-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border-radius: 100%;
+}
+
+.notif {
+  margin-right: 0.5rem;
+}

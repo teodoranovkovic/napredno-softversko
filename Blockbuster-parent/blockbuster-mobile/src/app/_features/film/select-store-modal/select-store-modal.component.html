@@ -1,0 +1,20 @@
+<ion-header translucent>
+  <ion-toolbar color="blockbuster-bg">
+    <ion-title>Select store</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-text *ngIf="stores && stores.length === 0"
+    >Not available in any store</ion-text
+  >
+  <ion-list>
+    <ion-item *ngFor="let store of stores">
+      <ion-label>{{ store.address }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="blockbuster-bg" fill="solid" (click)="rent(store)"
+          >Rent</ion-button
+        >
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

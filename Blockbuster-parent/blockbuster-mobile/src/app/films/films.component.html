@@ -1,0 +1,24 @@
+<ion-card class="image-container">
+  <ion-card-header>
+
+    <app-film-slides #filmSlider type="category"></app-film-slides>
+
+    <app-films-categories #categoryFilter [films]="films" [filteredFilms]="filteredFilms"
+      [categoryFilterEnabled]="categoryFilterEnabled" [searchFilterEnabled]="searchFilterEnabled"
+      (categoryFilterFinishedSubject)="onCategoryFilterFinished($event)" (categoryChanged)="onChategoryChanged($event)">
+    </app-films-categories>
+
+    <app-sort-films #sortFilms [films]="films" [filteredFilms]="filteredFilms"></app-sort-films>
+    <!-- (sortFilterdFilmsFinishedSubject)="onSortFilmsFinished($event)"
+      (sortFilterdFilmsFinishedSubject)="onSortFilteredFinished($event)" -->
+
+    <app-search-films #searchFilter [films]="films" [filteredFilms]="filteredFilms"
+      (searchFinishedSubject)="onSearchFinished($event)" (favouriteFilmsFinishedSubject)="onFavouriteFilmsClick($event)"
+      [categoryFilterEnabled]="categoryFilterEnabled" [searchFilterEnabled]="searchFilterEnabled"></app-search-films>
+  </ion-card-header>
+
+  <ion-card-content>
+    <app-films-listbox [favouriteFilmsClicked]="favouriteFilmsClicked" [films]="films" [filteredFilms]="filteredFilms"
+      [emptyFilteredFilmsForDisplay]="emtyFilteredFilms"></app-films-listbox>
+  </ion-card-content>
+</ion-card>

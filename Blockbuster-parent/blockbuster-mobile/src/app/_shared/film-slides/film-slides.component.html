@@ -1,0 +1,15 @@
+<ion-row>
+  <ion-item>
+    <ion-text color="primary ion-text-capitalize">
+      <h3>{{ title }}</h3>
+    </ion-text>
+  </ion-item>
+  <ion-slides [options]="slideOpts">
+    <ion-slide class="slidersFix" *ngFor="let film of films; let i = index">
+      <app-film-card
+        [routerLink]="['/film', film.filmId]"
+        [film]="film"
+      ></app-film-card>
+    </ion-slide>
+  </ion-slides>
+</ion-row>

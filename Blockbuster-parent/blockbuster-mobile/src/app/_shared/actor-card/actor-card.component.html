@@ -1,0 +1,39 @@
+<ion-card class="ion-margin-top">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-row class="ion-align-items-center">
+          <ion-button
+            (click)="addToFavorite()"
+            fill="clear"
+            color="blockbuster-bg"
+          >
+            <ion-icon
+              *ngIf="!checkHeart()"
+              slot="icon-only"
+              [color]="heartColor"
+              name="heart-outline"
+            ></ion-icon>
+            <ion-icon
+              *ngIf="checkHeart()"
+              slot="icon-only"
+              [color]="heartColor"
+              name="heart"
+            ></ion-icon>
+          </ion-button>
+        </ion-row>
+        <img style="border-radius: 10px" src="{{ actor.pictureUrl }}" />
+      </ion-col>
+      <ion-col>
+        <ion-card-header class="ion-text-center">
+          <ion-card-title>
+            {{ actor.name }}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content style="font-weight: 550">
+          {{ actor.biography }}
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

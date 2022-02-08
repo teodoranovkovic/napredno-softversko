@@ -1,0 +1,79 @@
+<app-header [backButton]="true" subheader="STORES"></app-header>
+
+<ion-content>
+  <div *ngIf="auth">
+    <ion-title>Local stores</ion-title>
+    <ion-card *ngIf="localStores?.length == 0">
+      <ion-title>No stores near you</ion-title>
+    </ion-card>
+    <ion-list class="list" *ngIf="localStores?.length != 0">
+      <ion-item
+        *ngFor="let store of localStores"
+        [ngClass]="{'focus' : store.storeId === focusedStore?.storeId, 'my-store': store.storeId === myStore?.storeId}"
+      >
+        <ion-icon
+          slot="start"
+          *ngIf="store.storeId === myStore?.storeId"
+          name="checkmark-circle"
+        ></ion-icon>
+        <ion-label class="ion-text-wrap">
+          <ion-text>{{ store.address }}, </ion-text>
+          <ion-text>{{ store.city }}, </ion-text>
+          <ion-text>{{ store.country }} </ion-text>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button
+            fill="solid"
+            color="blockbuster-text"
+            (click)="showOnMap(store)"
+            ><ion-icon name="locate-outline"></ion-icon>
+            <div class="hidden">Find</div></ion-button
+          >
+          <ion-button
+            *ngIf="store.storeId !== myStore?.storeId"
+            fill="solid"
+            color="blockbuster-bg"
+            (click)="selectStore(store)"
+            ><ion-icon name="checkmark-circle-outline"></ion-icon>
+            <div class="hidden">Select</div></ion-button
+          >
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div id="map" style="height: 40vh; width: 100%">></div>
+  <ion-list>
+    <ion-item
+      *ngFor="let store of stores"
+      [ngClass]="{'focus' : store.storeId === focusedStore?.storeId, 'my-store': store.storeId === myStore?.storeId}"
+    >
+      <ion-icon
+        slot="start"
+        *ngIf="store.storeId === myStore?.storeId"
+        name="checkmark-circle"
+      ></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <ion-text>{{ store.address }}, </ion-text>
+        <ion-text>{{ store.city }}, </ion-text>
+        <ion-text>{{ store.country }} </ion-text>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button
+          fill="solid"
+          color="blockbuster-text"
+          (click)="showOnMap(store)"
+          ><ion-icon name="locate-outline"></ion-icon>
+          <div class="hidden">Find</div></ion-button
+        >
+        <ion-button
+          *ngIf="auth && store.storeId !== myStore?.storeId"
+          fill="solid"
+          color="blockbuster-bg"
+          (click)="selectStore(store)"
+          ><ion-icon name="checkmark-circle-outline"></ion-icon>
+          <div class="hidden">Select</div></ion-button
+        >
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

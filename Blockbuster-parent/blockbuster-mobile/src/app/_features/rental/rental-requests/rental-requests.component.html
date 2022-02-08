@@ -1,0 +1,17 @@
+<ion-list>
+  <ion-item *ngFor="let request of rentalRequests"
+    ><ion-thumbnail slot="start">
+      <ion-img [src]="request.posterUrl"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
+      <h2 text-wrap>{{ request.title }}</h2>
+      <h6>{{ request.rentalDuration * request.rentalRate | money }}</h6>
+      <h5>{{ request.createDate | humanizeDate }}</h5>
+    </ion-label>
+    <ion-buttons *ngIf="request.status === 'pending'" slot="end">
+      <ion-button fill="outline" color="danger" (click)="cancelRequest(request)"
+        >Cancel</ion-button
+      >
+    </ion-buttons></ion-item
+  >
+</ion-list>

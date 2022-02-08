@@ -1,0 +1,34 @@
+.ionItem{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.category{
+  margin-left: 100px;
+  text-align: center;
+
+}
+
+.ratingLabel{
+
+  margin-left: 600px;
+  text-align: center;
+}
+
+.subheader{
+  background: var(--ion-color-blockbuster-bg-tint);
+  // color: var(--ion-color-blockbuster-bg-contrast);
+}
+
+.title{
+  font-size: 6vw;
+  font-weight:900;
+}
+
+@media only screen and (min-width: 600px) {
+  .title {
+      font-size: 35px;
+  }
+}

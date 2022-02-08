@@ -1,0 +1,9 @@
+<app-header subheader="{{getCategoryName()}}" [backButton]="true">
+</app-header>
+
+
+<ion-content>
+  <ion-card>
+    <app-films-listbox [favouriteFilmsClicked]="false" [films]="filteredFilms"></app-films-listbox>
+  </ion-card>
+</ion-content>

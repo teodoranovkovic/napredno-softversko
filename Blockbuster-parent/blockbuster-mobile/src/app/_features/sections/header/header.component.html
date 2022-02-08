@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="blockbuster-bg">
+    <ion-buttons class="left-buttons" slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-menu-button></ion-menu-button>
+        </ion-button>
+      </ion-menu-toggle>
+      <ion-img class="logo" [routerLink]="['/home']"></ion-img>
+    </ion-buttons>
+
+    <!-- <ion-button class="notification-button" slot="end" fill="clear" (click)="openNotifications($event)">
+      <ion-icon slot="icon-only" name="notifications" color="blockbuster-text" size="large"></ion-icon>
+      <ion-badge class="notification-badge" color="danger">66</ion-badge>
+    </ion-button> -->
+
+    <ion-chip
+      (click)="openProfilePopover($event)"
+      *ngIf="auth; else noAuth"
+      class="chip"
+      slot="end"
+      color="light"
+    >
+      <ion-badge
+        *ngIf="notificationsCount > 0"
+        color="blockbuster-text"
+        class="notif"
+        >{{ notificationsCount }}</ion-badge
+      >
+      <ion-label class="white">{{ auth.username }}</ion-label>
+      <ion-avatar
+        ><img *ngIf="auth.avatarUrl" src="{{ auth.avatarUrl }}" />
+        <img
+          *ngIf="!auth.avatarUrl"
+          src="../../../../assets/profile/avatar.jpg"
+        />
+      </ion-avatar>
+    </ion-chip>
+
+    <ng-template #noAuth>
+      <ion-buttons slot="end">
+        <ion-button class="login" (click)="openLoginModal()">Log in</ion-button>
+        <ion-button [routerLink]="['/auth/register']" class="login"
+          >Sign up</ion-button
+        >
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+  <div id="line"></div>
+
+  <ion-toolbar
+    color="blockbuster-bg"
+    class="subheader"
+    *ngIf="subheader != null"
+  >
+    <ion-button
+      fill="clear"
+      slot="start"
+      (click)="backClicked()"
+      color="blockbuster-text"
+      *ngIf="backButton"
+    >
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title slot="start" color="blockbuster-text" class="title">{{
+      subheader
+    }}</ion-title>
+  </ion-toolbar>
+</ion-header>

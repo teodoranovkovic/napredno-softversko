@@ -1,0 +1,79 @@
+<app-header [backButton]="true" subheader="CONTACT US"></app-header>
+
+<ion-content *ngIf="owners">
+  <ion-list *ngFor="let owner of owners">
+    <ion-card color="light">
+      <ion-grid style="margin-top: 40px">
+        <ion-row>
+          <ion-col>
+            <ion-avatar style="margin-left: 30px">
+              <img src="{{owner.imageUrl}}" />
+            </ion-avatar>
+          </ion-col>
+
+          <ion-col>
+            <ion-row>
+              <ion-fab
+                size="small"
+                vertical="center"
+                horizontal="center"
+                color="blockbuster-bg"
+              >
+                <ion-fab-button>
+                  <ion-icon name="share"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-list side="top">
+                  <ion-fab-button href="{{owner.inLink}}">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab-list>
+                <ion-fab-list side="bottom">
+                  <ion-fab-button href="{{owner.fbLink}}">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab-list>
+                <ion-fab-list side="start">
+                  <ion-fab-button href="{{owner.instaLink}}">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab-list>
+                <ion-fab-list side="end">
+                  <ion-fab-button>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab-list>
+              </ion-fab>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-title style="margin-left: 30px">
+        {{owner.firstName}} {{owner.lastName}}</ion-card-title
+      >
+
+      <ion-card-content style="text-align: center" class="ItemSpace">
+        <div lines="none" color="light">
+          <ion-item color="light" lines="none">
+            <ion-icon name="mail-outline"></ion-icon>
+            <ion-text> &nbsp; E-mail: {{owner.email}}</ion-text>
+          </ion-item>
+
+          <ion-item color="light" lines="none">
+            <ion-icon name="call-outline"></ion-icon>
+            <ion-text> &nbsp; Phone: {{owner.phone}} </ion-text>
+          </ion-item>
+
+          <ion-item color="light" lines="none">
+            <ion-icon name="school-outline"></ion-icon>
+            <ion-text> &nbsp; School: {{owner.school}}</ion-text>
+          </ion-item>
+
+          <ion-item color="light" lines="none">
+            <ion-icon name="location-outline"></ion-icon>
+            <ion-text> &nbsp; City: {{owner.city}} </ion-text>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

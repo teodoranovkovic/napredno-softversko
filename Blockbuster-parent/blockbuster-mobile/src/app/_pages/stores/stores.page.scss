@@ -1,0 +1,29 @@
+.subheader {
+  background: var(--ion-color-blockbuster-bg-tint);
+  // color: var(--ion-color-blockbuster-bg-contrast);
+}
+
+.title {
+  font-size: 6vw;
+  font-weight: 900;
+}
+
+.focus {
+  --background: rgba(var(--ion-color-blockbuster-text), 0.5);
+  border: solid 2px var(--ion-color-blockbuster-text);
+}
+
+.my-store {
+  --background: rgba(var(--ion-color-blockbuster-bg-rgb), 0.1);
+}
+
+@media only screen and (min-width: 600px) {
+  .title {
+    font-size: 35px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .hidden {
+    display: none;
+  }
+}

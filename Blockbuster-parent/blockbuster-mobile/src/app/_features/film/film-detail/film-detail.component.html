@@ -1,0 +1,75 @@
+<ion-content *ngIf="film">
+  <ion-item color="light" class="header">
+    <ion-label>
+      <h1>
+        {{ film.title }} <small>({{ film.releaseYear }})</small>
+      </h1>
+      <p>
+        {{ film.rating }} | {{ film.length | duration }} | {{ film.category }} |
+        {{ film.language }}
+      </p>
+    </ion-label>
+    <div class="rating-container">
+      <app-stars [starRating]="film.starRating"></app-stars>
+      <div>{{ film.starRating }}</div>
+    </div>
+  </ion-item>
+
+  <ion-grid lines="none">
+
+    <ion-row>
+
+      <ion-col>
+        <div class="poster">
+          <ion-img src="{{ film.posterUrl }}"></ion-img>
+        </div>
+      </ion-col>
+
+      <ion-col class="right">
+        <ion-row >
+          <ion-card *ngIf="auth" class="favourite" (click)="addToFavourite()">
+          <ion-icon [id]="film.filmId"  size="large" name="{{ isFilmFavourite() }}" color="danger">
+          </ion-icon> 
+          <ion-label>ADD TO FAVORITES</ion-label> 
+        </ion-card> 
+        </ion-row>
+
+        <ion-row class="spacer"></ion-row>
+
+        <ion-row class="button-container">
+            <div *ngIf="auth">You have {{ auth.balance | money }}</div>
+            <ion-button [disabled]="hasRequested || !isEnoughMoney()" (click)="openSelectStoreModal($event, film)"
+              class="btn" [ngClass]="{ unavailable: hasRequested || film.available < 1 }" expand="full" color="danger"
+              *ngIf="auth">
+              Rent now &nbsp;
+              <strong>{{
+                film.rentalDuration * film.rentalRate | money
+                }}</strong>
+            </ion-button>
+            <div *ngIf="!auth">Sign in to rent</div>
+            <div class="ion-text-wrap" *ngIf="auth">
+              <div *ngIf="film.available > 0 && !hasRequested">
+                <strong>{{ film.available }}</strong> left in your store right now!
+              </div>
+              <div *ngIf="film.available < 1 && !hasRequested">
+                Sorry, not available at your store
+              </div>
+            </div>
+            <div *ngIf="!auth && !hasRequested">
+              <strong>{{ film.available }}</strong> left in the world!
+            </div>
+            <div *ngIf="hasRequested">Film already requested</div>
+        </ion-row>
+
+        <ion-row class="spacer"></ion-row>  
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-item>
+    <ion-text> {{ film.description }}</ion-text>
+  </ion-item>
+  <app-actor-list [actors]="film.actors"></app-actor-list>
+</ion-content>

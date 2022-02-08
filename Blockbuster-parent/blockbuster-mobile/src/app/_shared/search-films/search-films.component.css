@@ -1,0 +1,13 @@
+.searchFilter{
+  display: flex;
+  flex-wrap: unset;
+  justify-content: space-evenly;
+
+ }
+
+.buttonCenter{
+  margin-top: 6px;
+}
+.fontSizeLabel{
+  font-size: x-small;
+}

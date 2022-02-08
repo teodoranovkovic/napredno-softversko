@@ -1,0 +1,77 @@
+<ion-content>
+  <div
+    class="card"
+    [ngStyle]="{
+      background: 'url(' + getBackground() + ') no-repeat top center/cover'
+    }"
+  >
+    <div class="header">
+      <div class="avatar">
+        <img *ngIf="auth.avatarUrl" src="{{ auth.avatarUrl }}" />
+        <img
+          *ngIf="!auth.avatarUrl"
+          src="../../../../assets/profile/avatar.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="user-meta ion-text-center">
+      <h3 class="username">{{ auth.username }}</h3>
+      <h6 class="balance">
+        Current balance
+        <ion-chip (click)="addMoney()">
+          <ion-label>{{ auth.balance | money }}</ion-label>
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-chip>
+      </h6>
+      <h6 class="balance">
+        Locked funds
+        <ion-chip [routerLink]="['/rental-requests']">
+          <ion-label>{{ lockedFunds | money }}</ion-label>
+        </ion-chip>
+      </h6>
+    </div>
+    <ion-button
+      [routerLink]="['/payments']"
+      routerLinkActive="router-link-active"
+      class="btn"
+      expand="full"
+      color="blockbuster-bg"
+      >View Payments</ion-button
+    >
+    <ion-button
+      [routerLink]="['/rentals']"
+      routerLinkActive="router-link-active"
+      class="btn"
+      expand="full"
+      color="blockbuster-bg"
+      >View Rentals</ion-button
+    >
+    <ion-button
+      [routerLink]="['/rental-requests']"
+      routerLinkActive="router-link-active"
+      class="btn"
+      expand="full"
+      color="blockbuster-bg"
+      >View Rental Requests</ion-button
+    >
+    <ion-button
+      [routerLink]="['/editProfile', auth.customerId]"
+      routerLinkActive="router-link-active"
+      class="btn"
+      expand="full"
+      color="blockbuster-text"
+      >Edit profile</ion-button
+    >
+    <ion-button
+      [routerLink]="['/edit-password']"
+      routerLinkActive="router-link-active"
+      class="btn"
+      expand="full"
+      color="danger"
+      >Change password</ion-button
+    >
+    <div class="expander"></div>
+  </div>
+</ion-content>

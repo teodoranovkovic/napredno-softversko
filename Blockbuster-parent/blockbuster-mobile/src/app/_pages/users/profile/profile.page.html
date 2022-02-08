@@ -1,0 +1,9 @@
+<app-header subheader="PROFILE" [backButton]="true"></app-header>
+
+<ion-content class="content" fullscreen="true" slot="fixed">
+  <app-profile
+    *ngIf="auth"
+    [auth]="auth"
+    [lockedFunds]="lockedFunds"
+  ></app-profile>
+</ion-content>

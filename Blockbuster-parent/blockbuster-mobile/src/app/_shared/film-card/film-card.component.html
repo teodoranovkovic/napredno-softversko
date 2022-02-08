@@ -1,0 +1,8 @@
+<ion-card>
+  <img src="{{ film.posterUrl }}"/>
+  <ion-card-content color="dark">
+    <ion-card-title class="title">{{ film.title }}</ion-card-title>
+    <ion-text color="dark">{{ film.description | descriptionCut}} </ion-text>
+    <app-stars [starRating]="film.starRating"></app-stars>           
+  </ion-card-content>
+</ion-card>

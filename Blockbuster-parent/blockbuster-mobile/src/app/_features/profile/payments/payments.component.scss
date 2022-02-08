@@ -1,0 +1,91 @@
+.cash-in {
+  color: white;
+  background-color: #22bb33;
+  padding: 3px;
+  border-radius: 2px 0 0 2px;
+}
+
+.arrow-in {
+  color: white;
+  background-color: #22bb33;
+  padding: 3px;
+  border-radius: 0 2px 2px 0;
+}
+
+.cash-out {
+  color: white;
+  background-color: #bb2124;
+  padding: 3px;
+  border-radius: 2px 0 0 2px;
+}
+
+.arrow-out {
+  color: white;
+  background-color: #bb2124;
+  padding: 3px;
+  border-radius: 0 2px 2px 0;
+}
+
+ion-item {
+  //   height: 100px;
+  display: flex;
+}
+
+.img-container {
+  text-align: center;
+}
+
+.img {
+  height: 120px;
+  border-radius: 4px;
+}
+
+.selected {
+  --opacity: 70%;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+  .days {
+    display: flex;
+    justify-content: center;
+
+    .left {
+      width: 80px;
+      margin-right: 0;
+      --border-radius: 5px 0 0 5px;
+    }
+
+    .middle {
+      width: 80px;
+      margin: 0;
+    }
+
+    .right {
+      width: 80px;
+      margin-left: 0;
+      --border-radius: 0 5px 5px 0;
+    }
+  }
+
+  .in-out {
+    display: flex;
+    justify-content: center;
+
+    .left {
+      width: 80px;
+      margin-right: 0;
+      --border-radius: 5px 0 0 5px;
+    }
+
+    .right {
+      width: 80px;
+      margin-left: 0;
+      --border-radius: 0 5px 5px 0;
+    }
+  }
+}

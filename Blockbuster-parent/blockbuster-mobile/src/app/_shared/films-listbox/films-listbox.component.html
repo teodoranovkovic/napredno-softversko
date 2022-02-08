@@ -1,0 +1,48 @@
+<ion-list *ngIf="
+    favouriteFilmsClicked == false &&
+    filmsForDisplay &&
+    filmsForDisplay.length > 0 &&
+    !emptyFilteredFilmsForDisplay
+  ">
+  <ion-item-sliding *ngFor="
+      let film of filmsForDisplay | slice: 0:displayedMovies;
+      let i = index
+    ">
+    <ion-item-options *ngIf="customer" color="danger" side="end">
+      <ion-item-option color="light" [id]="film.filmId" (click)="onFavouritesClick(film.filmId)">
+        <ion-icon [id]="film.filmId" *ngIf="film.filmId" size="large" name="{{ isFilmFavourite(film.filmId) }}"
+          color="danger">
+        </ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    <app-film-poster [film]="film"></app-film-poster>
+  </ion-item-sliding>
+</ion-list>
+
+<ion-list *ngIf="
+    favouriteFilmsClicked == true &&
+    favouriteFilmsForDisplay &&
+    favouriteFilmsForDisplay.length > 0 &&
+    !emptyFilteredFilmsForDisplay
+  ">
+  <ion-item-sliding *ngFor="
+      let film of favouriteFilmsForDisplay | slice: 0:displayedMovies;
+      let i = index
+    ">
+    <ion-item-options color="danger" side="end">
+      <ion-item-option color="light" [id]="film.filmId"  (click)="onFavouritesClick(film.filmId)" >
+        <ion-icon *ngIf="film.filmId" size="large" name="{{ isFilmFavourite(film.filmId) }}" color="danger">
+        </ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+    <app-film-poster [film]="film"></app-film-poster>
+  </ion-item-sliding>
+</ion-list>
+
+<ion-label *ngIf="emptyFilteredFilmsForDisplay">
+  <ion-text>No results for display!</ion-text>
+</ion-label>
+<ion-infinite-scroll #infinityScroll threshold="100px" (ionInfinite)="loadNextData($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" color="primary" loadingText="Loading data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

@@ -1,0 +1,74 @@
+<app-header [backButton]="true" subheader="FILMS"></app-header>
+
+<ion-content [fullscreen]="true">
+  <app-films></app-films>
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-searchbar (ionInput)="filterFilmSearch($event)" autocomplete="off" placeholder="
+       Start searching for a film"></ion-searchbar>
+
+      <ion-item>
+        <ion-label>Sort by Rating</ion-label>
+        <ion-select interface="popover" id="selectSort" (ionChange)="onSelectedSortTypeUpdate($event)">
+          <ion-select-option value="asc">Ascending</ion-select-option>
+          <ion-select-option value="desc">Descending</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select category</ion-label>
+        <ion-select (ionChange)="filterFilmsByCategory($event)" [interfaceOptions]="customPopoverCategory"
+          placeholder="Select Category" interface="popover">
+          <ion-select-option value="action">Action</ion-select-option>
+          <ion-select-option value="animation">Animation</ion-select-option>
+          <ion-select-option value="children">Children</ion-select-option>
+          <ion-select-option value="classics">Classics</ion-select-option>
+          <ion-select-option value="comedy">Comedy</ion-select-option>
+          <ion-select-option value="documentary">Documentary</ion-select-option>
+          <ion-select-option value="drama">Drama</ion-select-option>
+          <ion-select-option value="family">Family</ion-select-option>
+          <ion-select-option value="foreign">Foreign</ion-select-option>
+          <ion-select-option value="games">Games</ion-select-option>
+          <ion-select-option value="horror">Horror</ion-select-option>
+          <ion-select-option value="music">Music</ion-select-option>
+          <ion-select-option value="new">New</ion-select-option>
+          <ion-select-option value="sci-fi">Sci-Fi</ion-select-option>
+          <ion-select-option value="sports">Sports</ion-select-option>
+          <ion-select-option value="travel">Travel</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list *ngIf="films && films.length > 0">
+        <ion-item *ngFor="let film of films | slice: 0: displayedMovies; let i = index ">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="film.posterUrl"></ion-img>
+          </ion-thumbnail>
+
+          <ion-col>
+            <ion-row>
+              <h1> {{i+1}}. {{film.title}}&nbsp; ({{film.releaseYear}})</h1>
+            </ion-row>
+            <ion-row>
+              <ion-badge color="blockbuster-bg" class="">
+                <ion-text>&nbsp; {{ film.categoryName }} &nbsp;</ion-text>
+              </ion-badge>
+            </ion-row>
+          </ion-col>
+
+          <ion-badge color="warning">
+            <ion-icon name="star"></ion-icon>
+            <ion-text>&nbsp; {{ film.starRating }}</ion-text>
+          </ion-badge>
+        </ion-item>
+
+      </ion-list>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadNextData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" color="primary" loadingText="Loading data...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>

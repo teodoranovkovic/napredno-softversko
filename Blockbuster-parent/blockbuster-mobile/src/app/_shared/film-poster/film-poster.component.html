@@ -1,0 +1,25 @@
+<ion-item (click)="onFilmClick()">
+
+  <ion-thumbnail slot="start">
+    <ion-img [src]="film.posterUrl"></ion-img>
+  </ion-thumbnail>
+
+  <ion-col>
+    <ion-row>
+      <h1> {{film.title}}&nbsp; ({{film.releaseYear}})</h1>
+    </ion-row>
+    <ion-row>
+      <ion-badge color="blockbuster-bg" class="">
+        <ion-text>&nbsp; {{ film.categoryName }} &nbsp;</ion-text>
+      </ion-badge>
+    </ion-row>
+  </ion-col>
+
+  <ion-badge color="warning">
+    <ion-icon name="star"></ion-icon>
+    <ion-text>&nbsp; {{ film.starRating }}</ion-text>
+  </ion-badge>
+
+  <ion-icon name="chevron-forward-outline"></ion-icon>
+
+</ion-item>

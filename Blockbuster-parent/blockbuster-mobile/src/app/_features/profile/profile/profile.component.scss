@@ -1,0 +1,72 @@
+.content {
+  // --background: url(../../../../assets/profile/pulp-bg1.jpg) no-repeat top
+  //     center/cover fixed,
+  //   #fff;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  margin: 0 auto;
+
+  .header {
+    height: 180px;
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      position: relative;
+      margin: 0 auto;
+      //   overflow: hidden;
+      img {
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        bottom: calc(-1 * (80px + 4px));
+        border: 8px solid var(--ion-color-blockbuster-bg, #303940);
+        background-color: #fff;
+
+        background-position: center;
+        width: 160px;
+        height: 160px;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.card-body {
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  // height: calc(100vh - 360px);
+  overflow: hidden;
+
+  .user-meta {
+    padding-top: 40px;
+
+    .username {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .balance {
+      font-size: 90%;
+      color: #949ea6;
+      text-transform: uppercase;
+      margin: 0 auto;
+    }
+  }
+
+  .expander {
+    flex-grow: 1;
+  }
+
+  .btn {
+    width: 90vw;
+    max-width: 500px;
+  }
+}

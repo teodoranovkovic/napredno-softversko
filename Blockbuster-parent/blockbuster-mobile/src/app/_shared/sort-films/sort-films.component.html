@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-label>Sort films</ion-label>
+  <ion-select [(ngModel)]="selectedSort" interface="popover" id="selectSort"
+    (ionChange)="onSortTypeChange($event)" [interfaceOptions]="customPopoverReleaseYear">
+    <ion-select-option *ngFor="let sortType of sortTypes" value="{{sortType.id}}">{{sortType.name}}</ion-select-option>
+  </ion-select>
+</ion-item>

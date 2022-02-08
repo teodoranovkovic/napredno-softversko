@@ -1,0 +1,28 @@
+<ion-list>
+  <ion-item *ngFor="let payment of payments">
+    <ion-label>
+      <ng-container *ngIf="payment.type === 'in'; else out">
+        <ion-icon class="cash-in" name="cash-outline"></ion-icon>
+        <ion-icon class="arrow-in" name="arrow-forward-outline"></ion-icon>
+      </ng-container>
+      <ng-template #out>
+        <ion-icon class="cash-out" name="arrow-back-outline"></ion-icon>
+        <ion-icon class="arrow-out" name="cash-outline"></ion-icon>
+      </ng-template>
+      <h3>
+        {{ payment.type === "in" ? "+" : "-" }}{{ payment.amount | money }}
+      </h3>
+    </ion-label>
+    <ion-label>
+      <p>{{ payment.title }}</p>
+      <h3>Payed {{ payment.paymentDate | humanizeDate }}</h3>
+    </ion-label>
+    <ion-label class="img-container">
+      <img
+        *ngIf="payment.type === 'out'"
+        class="img"
+        src="{{ payment.posterUrl }}"
+      />
+    </ion-label>
+  </ion-item>
+</ion-list>

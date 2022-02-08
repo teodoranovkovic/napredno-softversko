@@ -1,0 +1,58 @@
+<ion-grid  *ngIf="noFavActors">
+  <ion-row class="ion-justify-content-center ion-margin-top">
+    <div>
+      No favourite actors
+    </div>
+  </ion-row>
+</ion-grid>
+
+<ion-content *ngIf="!loading">
+  <ion-card *ngFor="let actor of actors">
+    <ion-item-sliding>
+      <ion-item-options *ngIf="auth" icon-only side="start">
+        <ion-item-option (click)="addToFavorite(actor)" color="blockbuster-bg">
+          <ion-icon
+            *ngIf="!checkHeart(actor)"
+            slot="icon-only"
+            color="blockbuster-text"
+            name="heart-outline"
+          >
+          </ion-icon>
+          <ion-icon
+            *ngIf="checkHeart(actor)"
+            slot="icon-only"
+            color="blockbuster-text"
+            name="heart"
+          ></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{ actor.pictureUrl }}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ actor.name }}</h2>
+        </ion-label>
+
+        <ion-button
+          [routerLink]="['/actor', actor.actorId]"
+          color="dark"
+          fill="clear"
+          size="default"
+        >
+          <ion-icon slot="end" name="open-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-card>
+
+  <ion-infinite-scroll passive threshold="25%" (ionInfinite)="loadMoreActors($event)">
+    <ion-infinite-scroll-content loadinSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+
+
+

@@ -1,0 +1,5 @@
+<ion-segment value="{{ filter.default }}" (ionChange)="segmentChanged($event)">
+  <ion-segment-button *ngFor="let f of filter.filters" value="{{ f.value }}">
+    <ion-label>{{ f.text }}</ion-label>
+  </ion-segment-button>
+</ion-segment>

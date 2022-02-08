@@ -1,0 +1,48 @@
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poster {
+  ion-img {
+    max-width: 50vw;
+  }
+  padding-bottom: 10px;
+}
+
+.header {
+  padding-bottom: 10px;
+}
+
+.btn {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.unavailable {
+  background: var(--ion-color-blockbuster-text);
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container{
+  margin-left: 5px;
+  margin-right: 10px;
+  justify-self: center;
+  // margin-top: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer{
+  flex-grow: 1;
+}
+
+.favourite{
+  display: flex;
+  align-items: center;
+}

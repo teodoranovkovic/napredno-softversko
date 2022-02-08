@@ -1,0 +1,15 @@
+<app-header [backButton]="true" subheader="ACTORS"></app-header>
+
+<ion-content>
+  <ion-searchbar [value]="searchTerm" placeholder="Search actors by first and last name"
+    (ionInput)="onInputSearch($event)">
+  </ion-searchbar>
+
+  <ion-item *ngIf="auth">
+    <ion-icon slot="start" name="heart"></ion-icon>
+    <ion-label> Show favourite actors only </ion-label>
+    <ion-toggle (ionChange)="favouriteActorsChange()" [(ngModel)]="showFavorites"></ion-toggle>
+  </ion-item>
+
+  <app-actors-list-box [searchTerm]="this.searchTerm"></app-actors-list-box>
+</ion-content>

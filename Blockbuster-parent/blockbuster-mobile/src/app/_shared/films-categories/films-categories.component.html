@@ -1,0 +1,8 @@
+<ion-item>
+  <ion-label>Select category</ion-label>
+  <ion-select *ngIf="categories && categories.length>0" (ionChange)="onCategoryChange($event)"
+    [interfaceOptions]="customPopoverCategory" placeholder="Select Category" interface="popover">
+    <ion-select-option *ngFor="let cat of categories" value="{{cat.name}}">{{cat.name}}
+    </ion-select-option>
+  </ion-select>
+</ion-item>

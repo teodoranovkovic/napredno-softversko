@@ -1,0 +1,67 @@
+<app-header subheader="RENTALS" [backButton]="true"></app-header>
+
+<ion-content>
+  <!-- <div class="filter">
+    <ion-label>Filter by age</ion-label>
+    <ion-buttons class="days">
+      <ion-button (click)="onFilterSelect('all')" value="all" class="right"
+        [ngClass]="{'selected' : ageFilter==='all'}" fill="solid" color="blockbuster-bg">all</ion-button>
+      <ion-button (click)="onFilterSelect('today')" value="today" class="left"
+        [ngClass]="{'selected' : ageFilter==='today'}" fill="solid" color="blockbuster-bg">today</ion-button>
+      <ion-button (click)="onFilterSelect('week')" value="week" class="middle"
+        [ngClass]="{'selected' : ageFilter==='week'}" expand="full" fill="solid" color="blockbuster-bg">week
+      </ion-button>
+      <ion-button (click)="onFilterSelect('month')" value="month" class="right"
+        [ngClass]="{'selected' : ageFilter==='month'}" fill="solid" color="blockbuster-bg">month</ion-button>
+    </ion-buttons>
+  </div> -->
+
+  <ion-segment value="all" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="today">
+      <ion-label>Today</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>Week</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="month">
+      <ion-label>Month</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-segment value="all" (ionChange)="statusChanged($event)">
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="returned">
+      <ion-label>Returned</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="notReturned">
+      <ion-label>Not returned</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-list *ngIf="rentals">
+    <ion-item *ngFor="let rental of filteredRentals">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="rental.posterUrl"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2 text-wrap>{{rental.title}}</h2>
+        <h6>Rented {{rental.rentalDate}}</h6>
+        <h6 *ngIf="rental.returnDate">Returned {{rental.rentalDate}}</h6>
+      </ion-label>
+      <ion-label>
+        <p>{{rental.address}}</p>
+      </ion-label>
+      <ion-icon
+        *ngIf="rental.returnDate"
+        color="blockbuster-bg"
+        slot="end"
+        name="checkmark-circle"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

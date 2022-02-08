@@ -1,0 +1,5 @@
+<app-header subheader="FILM" [backButton]="true"></app-header>
+
+<ion-content>
+  <app-film-detail *ngIf="film" [auth]="auth" [film]="film"></app-film-detail>
+</ion-content>

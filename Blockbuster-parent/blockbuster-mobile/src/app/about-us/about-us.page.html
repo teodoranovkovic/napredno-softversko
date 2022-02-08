@@ -1,0 +1,163 @@
+<app-header [backButton]="true" subheader="ABOUT US"></app-header>
+
+<ion-content>
+  <div class="ion-padding-horizontal">
+    <ion-segment
+      value="favorite"
+      color="warning"
+      (ionChange)="segmentChanged($event)"
+      [(ngModel)]="this.comp"
+    >
+      <ion-segment-button
+        value="blockbuster"
+        layout="icon-start"
+        selected="true"
+      >
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <ion-label>Blockbuster</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="history" layout="icon-start">
+        <ion-icon name="film-outline"></ion-icon>
+        <ion-label>History</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="stors" layout="icon-start">
+        <ion-icon name="storefront-outline"></ion-icon>
+        <ion-label>Stores</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div *ngIf="comp==='blockbuster' ">
+    <ion-card class="action-card">
+      <img
+        class="header-img"
+        src="https://media.architecturaldigest.com/photos/5f34215663837d2f5aeae806/16:9/w_2560%2Cc_limit/Exterior_Hero_photo%252520credit_Airbnb.jpg"
+      />
+      <ion-card-header>
+        <ion-card-subtitle>Video rental company</ion-card-subtitle>
+        <ion-card-title>Blockbuster LLC</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Blockbuster, officially Blockbuster LLC and also known as Blockbuster
+        Video, was an American-based provider of home movie and video game
+        rental services. Services were offered primarily at video rental shops,
+        but later alternatives included DVD-by-mail, streaming, video on demand,
+        and cinema theater. Previously operated by Blockbuster Entertainment,
+        Inc., the company expanded internationally throughout the 1990s. At its
+        peak in 2004, Blockbuster consisted o f 9,094 stores and employed
+        approximately 84,300 people: 58,500 in the United States and 25,800 in
+        other countries. Poor leadership and the impact of the Great Recession
+        were major factors leading to Blockbuster's decline, as was the growing
+        competition from Netflix's mail-order service, video on demand, and
+        Redbox automated kiosks. Significant loss of revenue occurred during the
+        late 2000s, and the company filed for bankruptcy protection in 2010.The
+        following year, its remaining 1,700 stores were bought by satellite
+        television provider Dish Network, and by 2014, the last 300
+        company-owned stores were closed. Although corporate support for the
+        brand ended, Dish retained a small number of franchise agreements,
+        enabling some privately-owned franchises to remain open. Following a
+        series of further closures, most recently in 2019 in Western Australia,
+        only one franchised store remains open, located in Bend, Oregon, United
+        States.
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="comp==='history'">
+    <ion-card class="music-card">
+      <img
+        class="header-img"
+        src=" https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Interior_of_last_Blockbuster_Video.jpg/1920px-Interior_of_last_Blockbuster_Video.jpg"
+      />
+
+      <ion-card-header>
+        <ion-card-subtitle>Video rental company</ion-card-subtitle>
+        <ion-card-title>Blockbuster LLC History</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content text-center>
+        <h1>1985–1997: David Cook era and early growth</h1>
+
+        A Blockbuster store in Durham, North Carolina Blockbuster's beginnings
+        can be traced back to another company, Cook Data Services, founded by
+        David Cook in 1978. The company's primary goal was to supply software
+        services to the oil and gas industries throughout Texas, but it was very
+        unsuccessful. Sandy Cook, David's wife, wanted to get into the video
+        business, and her husband would soon study the industry and future
+        prospects. Using profit he made from the sale of David P. Cook &
+        Associates, the subsidiary of his company, he decided to buy into a
+        video store franchise in Dallas known as Video Works. When Video Works
+        would not allow him to decorate the interior of his store with a
+        blue-and-yellow design, he departed the franchise and opened the first
+        Blockbuster Video in 1985 under his own company Blockbuster Video Inc.
+        When he realized the potential in video rentals, Cook abandoned the oil
+        industry and began franchising the Blockbuster store. The first
+        Blockbuster store opened on October 19, 1985, in Dallas, Texas, with an
+        inventory of 8,000 VHS and 2,000 Beta tapes. The chain's name is derived
+        from the term blockbuster, a Hollywood term for a successful film, or in
+        literature terminology, a best-selling novel. Cook's experience with
+        managing huge databases proved helpful in driving innovation within the
+        industry.Following early success from the company's first stores, Cook
+        built a $6-million warehouse in Garland, Texas, to help sustain and
+        support future growth that allowed new stores to open quickly.
+        Blockbuster would often custom-tailor a store's inventory to its
+        neighborhood, based on local demographics.
+
+        <!-- <iframe width="320" height="345" src="blob:https://www.youtube.com/4584ae89-36a9-4def-bed8-bce03fa33944">
+        </iframe> -->
+        <ion-img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Blockbuster%2C_Moor_Allerton_District_Centre.jpg/1280px-Blockbuster%2C_Moor_Allerton_District_Centre.jpg"
+        >
+        </ion-img>
+
+        <h1>
+          1997–2007: John Antioco era, Netflix turndown, and financial peak
+        </h1>
+
+        In June 1997, Taco Bell president John Antioco resigned from the company
+        to become CEO of Blockbuster. Also that year, Warner Bros. offered
+        Antioco an exclusive rental deal, seeing as DVDs were emerging as the
+        new home video medium. Blockbuster was to have rights to rent new DVD
+        releases for a period of time before they went on sale to the general
+        public. The studio was to receive 40% of rental revenues in return,
+        which was the same deal already in place for VHS rentals. Blockbuster
+        turned the offer down, and the studio responded by lowering its DVD
+        wholesale price in order to compete with the rental industry. Walmart
+        seized the opportunity and in a few years surpassed Blockbuster as the
+        studios' single largest source of revenue. Other mass retailers soon
+        followed suit. Many began selling DVDs below wholesale price in hopes of
+        selling more items with better profit margins as a result of the
+        additional foot traffic in their stores. Unable to match prices,
+        Blockbuster's business model was severely impacted.
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="comp==='stors'">
+    <ion-card class="apps-card">
+      <ion-card-header>
+        <ion-card-subtitle> Our stores in the world</ion-card-subtitle>
+        <ion-card-title>Blockbuster stores</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngIf="this.stors && this.stors.length>= 0">
+          <div *ngFor="let store of stors">
+            <ion-item lines="none">
+              <ion-thumbnail slot="start">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/%22BLOCKBUSTER%22_video_shop%2C_Northwood_-_geograph.org.uk_-_976027.jpg/220px-%22BLOCKBUSTER%22_video_shop%2C_Northwood_-_geograph.org.uk_-_976027.jpg"
+                />
+              </ion-thumbnail>
+              <ion-label>
+                <h3>Blockbuster store</h3>
+                <p>
+                  {{store.address}} {{store.country}} {{store.postalCode}}
+                  {{store.city}}
+                </p>
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

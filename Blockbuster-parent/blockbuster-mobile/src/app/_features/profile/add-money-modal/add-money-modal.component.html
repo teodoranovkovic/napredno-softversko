@@ -1,0 +1,63 @@
+<ion-header translucent>
+  <ion-toolbar color="blockbuster-bg">
+    <ion-title>Add money</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="form" (ngSubmit)="addMoney($event)">
+    <ion-grid>
+      <ion-row color="blockbuster-bg" justify-content-center>
+        <ion-col align-self-center size-md="12" size-lg="12" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-label
+                [ngClass]="{
+                  error: !money.valid && (money.dirty || money.touched)
+                }"
+                position="floating"
+                color="blockbuster-bg"
+                >Insert the amount of funds you wish to add</ion-label
+              >
+              <ion-input
+                type="number"
+                placeholder="Million dollars"
+                formControlName="money"
+              ></ion-input>
+              <div class="validation-errors">
+                <ng-container
+                  *ngFor="let validation of validation_messages.money"
+                >
+                  <ion-text
+                    color="danger"
+                    *ngIf="
+                      money.hasError(validation.type) &&
+                      (money.dirty || money.touched)
+                    "
+                  >
+                    {{ validation.message }}
+                  </ion-text>
+                </ng-container>
+              </div>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button
+              color="blockbuster-bg"
+              size="large"
+              type="submit"
+              [disabled]="form.invalid"
+              expand="block"
+              >Add money</ion-button
+            >
+          </div>
+          <!-- <ion-row *ngIf="error">
+            <ion-label color="danger">{{ error }}</ion-label>
+          </ion-row> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

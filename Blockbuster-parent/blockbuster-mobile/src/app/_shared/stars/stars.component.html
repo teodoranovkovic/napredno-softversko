@@ -1,0 +1,18 @@
+<div *ngIf="starRating | star as stars" class="stars">
+  <!-- <ion-icon name="star" *ngFor="let full of counter(stars.full)"></ion-icon> -->
+  <ion-icon
+    color="blockbuster-text"
+    name="star"
+    *ngFor="let full of counter(stars.full)"
+  ></ion-icon>
+  <ion-icon
+    color="blockbuster-text"
+    name="star-half"
+    *ngFor="let full of counter(stars.half)"
+  ></ion-icon>
+  <ion-icon
+    color="blockbuster-text"
+    name="star-outline"
+    *ngFor="let full of counter(stars.empty)"
+  ></ion-icon>
+</div>

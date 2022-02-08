@@ -1,0 +1,20 @@
+<div class="searchFilter">
+  <ion-searchbar
+    (ionInput)="filterFilmSearch($event)"
+    autocomplete="off"
+    placeholder="
+       Search films"
+  ></ion-searchbar>
+  <div class="buttonCenter" *ngIf="auth">
+    <ion-button
+      size="medium"
+      (click)="showFavourites()"
+      color="light"
+      class="buttonCenter"
+    >
+      <ion-icon size="large" name="{{ this.heartName }}" color="danger">
+      </ion-icon>
+      <ion-label class="fontSizeLabel" color="danger">Favourite</ion-label>
+    </ion-button>
+  </div>
+</div>

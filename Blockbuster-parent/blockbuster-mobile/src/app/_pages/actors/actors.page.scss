@@ -1,0 +1,15 @@
+.subheader{
+    background: var(--ion-color-blockbuster-bg-tint);
+    // color: var(--ion-color-blockbuster-bg-contrast);
+}
+
+.title{
+    font-size: 6vw;
+    font-weight:900;
+}
+
+@media only screen and (min-width: 600px) {
+    .title {
+        font-size: 35px;
+    }
+  }

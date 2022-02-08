@@ -1,0 +1,23 @@
+<app-header [backButton]="true" subheader="RENTAL REQUESTS"></app-header>
+
+<ion-content>
+  <ion-segment value="pending" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="pending">
+      <ion-label>Pending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="accepted">
+      <ion-label>Accepted</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="rejected">
+      <ion-label>Rejected</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="canceled">
+      <ion-label>Canceled</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <app-rental-requests
+    #requests
+    *ngIf="rentalRequests"
+    [rentalRequests]="rentalRequests"
+  ></app-rental-requests>
+</ion-content>

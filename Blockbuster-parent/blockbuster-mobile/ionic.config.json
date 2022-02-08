@@ -1,0 +1,8 @@
+{
+  "name": "blockbuster-mobile",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

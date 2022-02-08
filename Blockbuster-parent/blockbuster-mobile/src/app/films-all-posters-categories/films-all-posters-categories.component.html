@@ -1,0 +1,18 @@
+<div *ngIf="categories && categories.length>0">
+
+  <div *ngFor="let cat of categories;let i=index">
+    <ion-row *ngIf="i%2==0">
+
+      <ion-col>
+        <app-film-category-poster [category]="getCategory(i)"></app-film-category-poster>
+      </ion-col>
+
+      <ion-col>
+        <app-film-category-poster *ngIf="getCategory(i+1) != undefined" [category]="getCategory(i+1)">
+        </app-film-category-poster>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
+</div>

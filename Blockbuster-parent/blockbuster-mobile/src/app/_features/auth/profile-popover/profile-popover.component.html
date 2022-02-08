@@ -1,0 +1,14 @@
+<ion-list class="popover">
+  <ion-item
+    (click)="close()"
+    [routerLink]="['/profile']"
+    routerLinkActive="router-link-active"
+    >Profile<ion-icon slot="end" name="person-circle-outline"></ion-icon
+  ></ion-item>
+  <ion-item (click)="openNotifications($event)"
+    >Notifications<ion-icon slot="end" name="notifications"></ion-icon
+  ></ion-item>
+  <ion-item lines="none" detail="false" button (click)="logout()"
+    >Logout<ion-icon slot="end" name="exit-outline"></ion-icon
+  ></ion-item>
+</ion-list>

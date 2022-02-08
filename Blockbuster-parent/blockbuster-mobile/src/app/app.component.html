@@ -1,0 +1,7 @@
+<ion-app [class.dark-theme]="dark">
+  
+  <app-side-menu (darkForParent)="changeMode($event)"></app-side-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <app-footer></app-footer>
+
+</ion-app>
